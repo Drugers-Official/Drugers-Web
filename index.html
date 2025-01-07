@@ -175,33 +175,34 @@
     </section>
 
     <script>
-   document.getElementById('contact-form').addEventListener('submit', function(e) {
+   document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();
-  
+
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
   const statusMessage = document.getElementById('status-message');
 
-  // Use CORS proxy to route request securely over HTTPS
-  const proxyUrl = 'https://corsproxy.io/?';
+  // New CORS proxy URL
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   const apiUrl = 'http://de16.spaceify.eu:25155/api/contact';
-  
-  fetch(proxyUrl + encodeURIComponent(apiUrl), {
+
+  fetch(proxyUrl + apiUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, message })
   })
-  .then(response => response.json())
-  .then(data => {
-    statusMessage.textContent = data.message;
-    document.getElementById('contact-form').reset();
-  })
-  .catch(error => {
-    console.error('Error submitting form:', error);
-    statusMessage.textContent = 'Failed to send message. Please try again later.';
-  });
+    .then(response => response.json())
+    .then(data => {
+      statusMessage.textContent = data.message;
+      document.getElementById('contact-form').reset();
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      statusMessage.textContent = 'Failed to send message. Please try again later.';
+    });
 });
+
 
     // Navbar scroll and click activation
     window.addEventListener('scroll', function() {
