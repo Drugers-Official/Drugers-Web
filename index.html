@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Drugers</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar mt-4 navbar-expand-lg navbar-dark bg-transparent floating-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="#home">Drugers</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="#products">Products</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="animated-section">
+    <div class="animated-background"></div>
+    <div class="content text-center text-light">
+      <div class="card-Home-section">
+        <div class="container d-flex justify-content-center flex-wrap">
+          <div class="card-Home">
+            <div class="card-Home-content p-4">
+              <h1>Welcome to Drugers</h1>
+              <p>
+                Welcome to our Website! Whether you're leveling up your Discord game or
+                taking your content to the next level, we've got you covered. We offer a
+                range of free software, including Discord Nitro and server boosts to enhance
+                your gaming experience. Plus, we provide professional editing services for
+                logos, videos, intros, and banners to help you stand out in the gaming
+                community.
+              </p>
+              <button class="mt-2">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="animated-background"></div>
+    <div class="content text-center text-light">
+      <h1>About Us</h1>
+      <p>Learn more about our mission, values, and commitment to excellence.</p>
+    </div>
+    <div class="card-About-section">
+      <div class="container d-flex justify-content-center flex-wrap">
+        <div class="card-About">
+          <div class="card-About-content">
+            <h3>Our Mission</h3>
+            <p>To deliver the highest quality products to our customers.</p>
+          </div>
+        </div>
+        <div class="card-About">
+          <div class="card-About-content">
+            <h3>Our Vision</h3>
+            <p>To innovate and lead in the healthcare industry.</p>
+          </div>
+        </div>
+        <div class="card-About">
+          <div class="card-About-content">
+            <h3>Core Values</h3>
+            <p>Integrity, quality, and customer satisfaction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="animated-background"></div>
+    <div class="content text-center text-light">
+      <h1>Our Products</h1>
+      <p>Explore our wide range of products crafted with quality and care.</p>
+    </div>
+    <div class="container mt-5">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="card-Product">
+            <div class="card-Product-content">
+              <img src="./Assets/pro_.gif" alt="Premiere Pro">
+              <h3>Premiere Pro</h3>
+              <p>High-quality product designed to meet your needs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-Product">
+            <div class="card-Product-content">
+              <img src="./Assets/premi.gif" alt="Product 2">
+              <h3>Product 2</h3>
+              <p>Reliability and performance in one package.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-Product">
+            <div class="card-Product-content">
+              <img src="./Assets/illustrator.gif" alt="Product 3">
+              <h3>Product 3</h3>
+              <p>Innovative solutions for modern challenges.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-Product">
+            <div class="card-Product-content">
+              <img src="./Assets/light_rooms.gif" alt="Product 4">
+              <h3>Product 4</h3>
+              <p>Unmatched quality and exceptional value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="animated-background"></div>
+    <div class="content text-center">
+      <h1>Contact Us</h1>
+      <p>Have questions or need assistance? Feel free to reach out!</p>
+      <div class="contact-card mt-5">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+        <p id="status-message"></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const statusMessage = document.getElementById('status-message');
+
+      fetch('http://de16.spaceify.eu:25155/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        statusMessage.textContent = data.message;
+        document.getElementById('contact-form').reset();
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        statusMessage.textContent = 'Failed to send message. Please try again later.';
+      });
+    });
+
+    // Navbar scroll and click activation
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      let currentSection = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(currentSection)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

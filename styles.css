@@ -1,0 +1,683 @@
+/* Smooth Scroll */
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Sigmar&display=swap');
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  margin: 0;
+  font-family: "Sigmar", serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body p{
+  font-family: "Agbalumo", serif;
+}
+
+body {
+  background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #060367 66%, #ffa079 100%);
+  background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#0a025a 66%,#ffa079 100%);
+  background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#060a58 66%,#ffa079 100%);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+-moz-animation: Gradient 15s ease infinite;
+animation: Gradient 15s ease infinite;
+/*min-height: calc(100vh - 2rem);*/
+display: flex;
+flex-direction: column;
+align-items: stretch;
+justify-content: space-evenly;
+overflow: auto;
+position: relative; 
+}
+
+body::before, 
+body::after {
+content: "";
+width: 70vmax;
+height: 70vmax;
+position: absolute;
+background: rgba(255, 255, 255, 0.07);
+left: -20vmin;
+top: -20vmin;
+animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+z-index: 1;
+will-change: border-radius, transform;
+transform-origin: 55% 55%;
+pointer-events: none; 
+}
+
+body::after {
+  width: 70vmin;
+  height: 70vmin;
+  left: auto;
+  right: -10vmin;
+  top: auto;
+  bottom: 0;
+  animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+  transform-origin: 20% 20%; 
+}
+
+@-webkit-keyframes Gradient {
+0% {
+  background-position: 0 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0 50%
+}
+}
+
+@-moz-keyframes Gradient {
+0% {
+  background-position: 0 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0 50%
+}
+}
+
+@keyframes Gradient {
+0% {
+  background-position: 0 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0 50%
+}
+}
+
+@keyframes morph {
+0% {
+  border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+100% {
+  border-radius: 40% 60%; } 
+}
+
+@keyframes spin {
+to {
+  transform: rotate(1turn); 
+} 
+}
+.st0{display:none;}
+.st1{display:inline;}
+.st2{opacity:0.29;}
+.st3{fill:#FFFFFF;}
+.st4{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+.st5{clip-path:url(#SVGID_4_);}
+.st6{clip-path:url(#SVGID_6_);}
+.st7{clip-path:url(#SVGID_8_);}
+.st8{clip-path:url(#SVGID_10_);}
+.st9{fill:none;}
+.st10{clip-path:url(#SVGID_12_);}
+.st11{opacity:0.7;}
+.st12{clip-path:url(#SVGID_14_);}
+.st13{opacity:0.2;}
+.st14{clip-path:url(#SVGID_16_);}
+.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+
+
+
+.floating-navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.floating-navbar:hover {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.9));
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Toggler Button Hover Effect */
+.navbar-toggler {
+  border-color: #ffc107;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: #ffc107;
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.5);
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+  font-size: 18px;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffc107;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px #ffc107, 0 0 20px #ffc107;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffc107;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ffc107, 0 0 20px #ffc107;
+}
+
+/* Underline Animation */
+.navbar-nav .nav-link:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffc107;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: bottom right;
+}
+
+.navbar-nav .nav-link:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+
+/* Home */
+
+/* Animated Background Section */
+.animated-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Animated Background Section */
+.animated-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Rotating Background Effect */
+@keyframes rotateBg {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* About Us Section */
+.about-section {
+  position: relative;
+  height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  padding: 2rem; /* Optional for content spacing */
+}
+
+/* About Us Section Background */
+.about-section .animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Content Adjustments for About Us */
+.about-section .content {
+  z-index: 1;
+  text-align: center;
+}
+
+.about-section .content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 2s ease-out, textGlow 2s infinite alternate;
+}
+
+.about-section .content p {
+  font-size: 1.5rem;
+  animation: fadeInUp 2.5s ease-out;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Cards Section */
+.card-About-section {
+  z-index: 1;
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-About-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card-About {
+  position: relative;
+  background: transparent;
+  width: 80%;
+  height: 60%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+}
+
+.card-About:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(145deg, #3a3a3a, #4a4a4a);
+}
+
+/* Card Content */
+.card-About .card-About-content {
+  z-index: 1;
+}
+
+.card-About h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #ffc107;
+}
+
+.card-About p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Hover Glow Overlay */
+.card-About:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  border-radius: 15px;
+}
+
+.card-About:hover:before {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Reuse Card Styles */
+.cards-section {
+  z-index: 1;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+
+/* Products Section */
+.products-section {
+  position: relative;
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+}
+
+.products-section .content{
+  margin-top: 100px;
+}
+
+/* Animated Background */
+.products-section .animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); */
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Content Styling */
+.products-section .content {
+  z-index: 1;
+  text-align: center;
+}
+
+.products-section .content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 2s ease-out, textGlow 2s infinite alternate;
+}
+
+.products-section .content p {
+  font-size: 1.5rem;
+  animation: fadeInUp 2.5s ease-out;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Card Styling */
+.card-Product {
+  position: relative;
+  /* background: linear-gradient(145deg, #2a2a2a, #3a3a3a); */
+  background: rgb(255, 255, 255);
+  width: 100%; /* Adapts to column size */
+  height: 400px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+}
+
+.card-Product:hover {
+  /* transform: scale(1.1) rotate(3deg); */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(145deg, #3a3a3a, #4a4a4a);
+  color: white;
+  
+}
+
+.card-Product .card-Product-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #ffc107;
+ 
+}
+
+.card-Product .card-Product-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+ 
+}
+
+
+.card-Product-content {
+  position: absolute;
+  top: 53px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.6); Dark overlay */
+  color: white;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  
+}
+
+.card-Product-content img{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.card-Product-content:hover
+{
+  visibility: visible;
+  color: white;
+  top: -60px;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+  /* Contact Section Styling */
+  .contact-section {
+      position: relative;
+      height: 100vh; /* Full-page height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); Matching gradient */
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      padding: 2rem; /* Optional padding */
+  }
+
+  /* Animated Background */
+  .contact-section .animated-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: linear-gradient(135deg, #3a1c71, #2c2c54, #000000); Matching colors */
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease-in-out infinite, rotateBg 20s linear infinite;
+      z-index: -1;
+      filter: blur(20px);
+  }
+
+  /* Section Content */
+  .contact-section .content {
+      z-index: 1;
+      text-align: center;
+  }
+
+  .contact-section .content h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 2s ease-out, textGlow 2s infinite alternate;
+  }
+
+  .contact-section .content p {
+      font-size: 1.5rem;
+      animation: fadeInUp 2.5s ease-out;
+      color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Card Styling for Form */
+  .contact-card {
+      background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      max-width: 500px;
+      margin: 0 auto; /* Center the card */
+      color: #fff;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(145deg, #3a3a3a, #4a4a4a);
+  }
+
+  /* Form Styling */
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .form-group {
+      margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #ffc107;
+  }
+
+  .form-group input,
+  .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 8px rgba(255, 193, 7, 0.8);
+  }
+
+  button {
+      background: #ffc107;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  button:hover {
+      background: #ffb000;
+      box-shadow: 0 4px 10px rgba(255, 193, 7, 0.6);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 576px) {
+      .contact-card {
+          padding: 1.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+          font-size: 0.9rem;
+      }
+
+      button {
+          font-size: 1rem;
+      }
+  }
