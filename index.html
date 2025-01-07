@@ -167,7 +167,7 @@
       const message = document.getElementById('message').value;
       const statusMessage = document.getElementById('status-message');
 
-      fetch('http://de16.spaceify.eu:25155/api/contact', {
+      fetch('https://de16.spaceify.eu:25155/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message })
